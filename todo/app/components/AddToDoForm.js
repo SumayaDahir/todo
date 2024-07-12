@@ -20,7 +20,10 @@ const handleChange = (event) => {
         (prevFormData) => ({
         ...prevFormData, [name] : type === "checkbox" ? checked : value }))
 } 
-
+const handleDateChange = (date) => {
+    setFormData((prevFormData) => ({...prevFormData,
+    date: prevFormData.date}))
+}
 const handleSubmit = () => {
     console.log(formdata)
 }
@@ -34,11 +37,10 @@ const handleSubmit = () => {
      onChange={handleChange}
      />
      <DatePicker
-     dateFormat='MM/dd/yyyy' 
      aria-label='Date'
      placeholder='Enter Date'
-     value={formdata.date}
-     onChange={handleChange}
+     selected={formdata.date}
+     onChange={handleDateChange}
      />
      <input 
      type='text'
